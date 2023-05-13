@@ -1,6 +1,5 @@
-# swac
-
-This template should help get you started developing with Vue 3 in Vite.
+# swac-frontend
+Vite + Vue3 frontend
 
 ## Recommended IDE Setup
 
@@ -27,3 +26,4 @@ npm run dev
 ```sh
 npm run build
 ```
+

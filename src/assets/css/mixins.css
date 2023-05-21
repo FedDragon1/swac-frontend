@@ -1,0 +1,56 @@
+@media (min-width: 1000px) {
+  .desktop {
+    display: initial;
+  }
+}
+@media (max-width: 999px) {
+  .desktop {
+    display: none !important;
+  }
+}
+@media (max-width: 999px) {
+  .mobile {
+    display: initial;
+  }
+}
+@media (min-width: 1000px) {
+  .mobile {
+    display: none !important;
+  }
+}
+.anchor-beautify div {
+  position: relative;
+}
+.anchor-beautify div > * {
+  color: var(--a-color-dark);
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  font-family: "Quicksand";
+}
+.anchor-beautify div > *:before {
+  content: attr(data-content);
+  color: var(--a-color-hover);
+  position: absolute;
+  display: inline-block;
+  overflow-x: hidden;
+  width: 0;
+  border-bottom: var(--a-color-hover) 4px solid;
+  transition: width 0.3s ease-in-out;
+  line-height: calc(var(--nav-height) - 8px);
+  translate: 0 3px;
+}
+@media (max-width: 700px) {
+  .anchor-beautify div > *:before {
+    content: '';
+    left: 0;
+    height: calc(100% - 6px);
+    transition: width 0.3s ease-in-out;
+  }
+}
+.anchor-beautify div > *:hover:before {
+  width: 100%;
+}
+.anchor-beautify div > *:hover {
+  color: var(--a-color-hover);
+}

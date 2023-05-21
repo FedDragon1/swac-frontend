@@ -1,47 +1,84 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+import NavigationBar from "@/components/NavigationBar.vue";
+
+export default {
+  name: "App",
+  components: {
+    NavigationBar
+  }
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <NavigationBar icon="src/assets/images/icon-text-light.png" icon-mobile="/fav-icons/android-chrome-192x192.png">
+    <div>
+      <router-link class="chosen" to="/" data-content="Home">Home</router-link>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <div>
+      <router-link class="hover" to="/course" data-content="Course">Course</router-link>
+    </div>
+    <div>
+      <router-link class="hover" to="/playground" data-content="Playground">Playground</router-link>
+    </div>
+    <div>
+      <router-link class="hover" to="/about" data-content="About">About</router-link>
+    </div>
+  </NavigationBar>
+  <router-view/>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style lang="stylus">
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Quicksand&display=swap');
+@import "/assets/css/mixins.styl";
+
+@font-face {
+  font-family: 'zhuziawan';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/src/assets/zhuziawan.woff2) format('woff2');
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+//global
+$background-color = #f0f0f0
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+// nav
+$nav-height = 70px
+$icon-height = 30px
+$nav-padding = 40px
+$nav-background = rgba(white, 0.6)
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+// text
+$a-color = #141414
+$a-color-hover = #f4b232
+$color = #141414
+$accent-color = yellow
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+//dark mode
+$color-dark = #f0f0f0
+$a-color-dark = #f0f0f0
+$background-color-dark = #141414
+$nav-background-dark = rgba(black, 0.6)
+
+:root
+  --nav-height $nav-height
+  --icon-height $icon-height
+  --nav-padding $nav-padding
+  --a-color $a-color
+  --a-color-hover $a-color-hover
+  --color $color
+  --accent-color $accent-color
+  --background-color $background-color
+  --a-color-dark $a-color-dark
+  --color-dark $color-dark
+  --background-color-dark $background-color-dark
+  --nav-background $nav-background
+  --nav-background-dark $nav-background-dark
+
+
+body
+  padding 0
+  margin 0
+  overflow-x hidden
+  user-select none
+  font-family "Quicksand", "zhuziawan", 'Noto Sans SC'
 </style>

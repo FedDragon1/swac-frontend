@@ -1,0 +1,48 @@
+
+
+.desktop
+  @media (min-width 1000px)
+    display initial
+  @media (max-width 999px)
+    display none !important
+
+.mobile
+  @media (max-width 999px)
+    display initial
+  @media (min-width 1000px)
+    display none !important
+
+.anchor-beautify
+  div
+    position relative
+
+    & > *
+      color var(--a-color-dark)
+      font-size 1.2em
+      text-decoration none
+      transition color 0.3s ease-in-out
+      font-family "Quicksand"
+
+      &:before
+        content attr(data-content)
+        color var(--a-color-hover)
+        position absolute
+        display inline-block
+        overflow-x hidden
+        width 0
+        border-bottom var(--a-color-hover) 4px solid
+        transition width 0.3s ease-in-out
+        line-height calc(var(--nav-height) - 8px)
+        translate 0 3px
+
+        @media (max-width: 700px)
+          content ''
+          left 0
+          height calc(100% - 6px)
+          transition width 0.3s ease-in-out
+
+      &:hover:before
+        width 100%
+
+      &:hover
+        color var(--a-color-hover)
